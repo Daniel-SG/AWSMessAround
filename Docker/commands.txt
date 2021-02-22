@@ -1,0 +1,7 @@
+#Reads docker-compose.yml and set up the images for Docker
+docker-compose up -d
+
+#Creates a Docker image called my-custom-image:1.0.0 extending cp-kafka-connect-base:6.1.0 and adding confluentinc/kafka-connect-s3:5.5.3
+docker build . -t my-custom-image:1.0.0
+FROM confluentinc/cp-kafka-connect-base:6.1.0
+RUN confluent-hub install confluentinc/kafka-connect-s3:5.5.3
