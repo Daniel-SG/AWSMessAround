@@ -1,0 +1,13 @@
+{
+  "name": "S3SinkConnectorConnector_1",
+  "config": {
+    "connector.class": "io.confluent.connect.s3.S3SinkConnector",
+    "topics": "venues",
+    "format.class": "io.confluent.connect.s3.format.avro.AvroFormat",
+    "flush.size": "1000",
+    "s3.bucket.name": "<my bucket name>",
+    "s3.region": "eu-west-1",
+    "storage.class": "io.confluent.connect.s3.storage.S3Storage",
+    "topics.dir": "<my object prefix>"
+  }
+}
