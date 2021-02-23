@@ -12,3 +12,6 @@ messages using curl:
 $ curl -s https://stream.meetup.com/2/rsvps | \
 	jq 'select(.venue != null) | .venue | {lon,lat,venue_id}' -c | \
 	kafka-avro-console-producer --bootstrap-server localhost:9092 --topic venues --property value.schema.id=1
+
+Creating connector
+$ curl -H 'Content-Type: application/json' -X POST -d @connector_S3SinkConnectorConnector_1_config.json http://localhost:8083/connectors
