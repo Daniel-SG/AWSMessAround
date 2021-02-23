@@ -2,12 +2,16 @@
 docker-compose up -d
 
 #Creates a Docker image called my-custom-image:1.0.0 extending cp-kafka-connect-base:6.1.0 and adding confluentinc/kafka-connect-s3:5.5.3
-docker build . -t my-custom-image:1.0.0
+# For that you have to create a file called 'Dockerfile' and add the following
 FROM confluentinc/cp-kafka-connect-base:6.1.0
-RUN confluent-hub install confluentinc/kafka-connect-s3:5.5.3
+RUN confluent-hub install --no-prompt --verbose confluentinc/kafka-connect-s3:latest
 
-Generate a 'venues' topic, add the venues.avsc schema to it, and generate
-messages using curl:
+#Finally you have to execute this sentence to create the image based on the Dockerfile
+$ docker build . -t my-custom-image:1.0.0
+
+
+
+#Generate a 'venues' topic, add the venues.avsc schema to it, and generate messages using curl:
 
 $ curl -s https://stream.meetup.com/2/rsvps | \
 	jq 'select(.venue != null) | .venue | {lon,lat,venue_id}' -c | \
