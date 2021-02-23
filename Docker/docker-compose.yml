@@ -179,8 +179,10 @@ services:
       KAFKA_REST_SCHEMA_REGISTRY_URL: 'http://schema-registry:8081'
  
   connect:
-    image: confluentinc/cp-kafka-connect-base:6.0.1
+    build:
+      context: .
     container_name: kafka-connect
+    restart: always
     depends_on:
       - broker
       - schema-registry
@@ -205,17 +207,6 @@ services:
     # If you want to use the Confluent Hub installer to d/l component, but make them available
     # when running this offline, spin up the stack once and then run :
     #   docker cp kafka-connect:/usr/share/confluent-hub-components ./data/connect-jars
-    volumes:
-      - $PWD/data:/data
+    #volumes:
+      #- ./data:/data
     # In the command section, $ are replaced with $$ to avoid the error 'Invalid interpolation format for "command" option'
-    command:
-      - bash
-      - -c
-      - |
-        echo "Installing Connector"
-        confluent-hub install --no-prompt confluentinc/kafka-connect-s3:5.5.3
-        #
-        echo "Launching Kafka Connect worker"
-        /etc/confluent/docker/run &
-        #
-        sleep infinity
