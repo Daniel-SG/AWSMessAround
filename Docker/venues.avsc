@@ -1,0 +1,20 @@
+{
+  "doc": "Sample schema to help you get started.",
+  "fields": [
+    {
+      "name": "lon",
+      "type": "double"
+    },
+    {
+      "name": "lat",
+      "type": "double"
+    },
+    {
+      "name": "venue_id",
+      "type": "long"
+    }
+  ],
+  "name": "value_venues",
+  "namespace": "com.mycorp.mynamespace",
+  "type": "record"
+}
