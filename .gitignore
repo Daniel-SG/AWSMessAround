@@ -1,1 +1,3 @@
 /s3-trigger-slack-app-scala/target/
+/s3-trigger-slack-app-scala/.idea/
+/s3-trigger-slack-app-scala/.bsp/

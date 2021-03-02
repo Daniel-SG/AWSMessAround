@@ -23,7 +23,6 @@ def lambda_handler(event, context):
         
         #Sent Slack message
         response = slack.sent_slack_message(data)
-      
         
         return response.status_code
         
