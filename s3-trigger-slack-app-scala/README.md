@@ -1,7 +1,8 @@
 
-Instructions
+*Instructions*
+
 Compile the code with SBT (;compile;assembly) and add the generated JAR in Lambda
-To make a test in Lambda you can use the file inside the events folder
+To make a test in Lambda you can use the file inside the events folder (change the name of the bucket and the file inside the bucket for your test)
 
 Guides:
 Simple Lambda function with Scala (no other dependencies with AWS)
