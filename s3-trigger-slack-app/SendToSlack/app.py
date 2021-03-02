@@ -1,12 +1,8 @@
 import json
-
 import requests
 import urllib.parse
-import boto3
-
 import datetime
 import slack
-s3 = boto3.client('s3')
 
 def lambda_handler(event, context):
     #print("Received event: " + json.dumps(event, indent=2))
@@ -16,8 +12,7 @@ def lambda_handler(event, context):
     fileName = urllib.parse.unquote_plus(event['Records'][0]['s3']['object']['key'], encoding='utf-8')
     currentDate = datetime.datetime.now()
     
-    try:
-       
+    try:  
         print("File added ->: " + event['Records'][0]['s3']['object']['key'])
         data = {'text': fileName+ " added in " +bucketName +"-> " +str(currentDate) } 
         
