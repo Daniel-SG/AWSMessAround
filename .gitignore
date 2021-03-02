@@ -1,3 +1,5 @@
 /s3-trigger-slack-app-scala/target/
 /s3-trigger-slack-app-scala/.idea/
 /s3-trigger-slack-app-scala/.bsp/
+/s3-trigger-slack-app/SendToSlack/slack.py
+/s3-trigger-slack-app-scala/src/main/scala/aws/lambda/slack.py
