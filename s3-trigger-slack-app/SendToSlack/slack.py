@@ -1,6 +1,5 @@
 import json
-import urllib.parse
-import boto3
+
 from botocore.vendored import requests
 
 def sent_slack_message(data):
