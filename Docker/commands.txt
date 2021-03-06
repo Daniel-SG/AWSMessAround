@@ -15,7 +15,7 @@ $ docker build . -t my-custom-image:1.0.0
 
 $ curl -s https://stream.meetup.com/2/rsvps | \
 	jq 'select(.venue != null) | .venue | {lon,lat,venue_id}' -c | \
-	kafka-avro-console-producer --bootstrap-server localhost:9092 --topic venues --property value.schema.id=1
+	kafka-avro-console-producer --broker-list localhost:9092 --topic venues --property value.schema.id=1
 
 # NOTE: Requires AWS credentials
 Creating connector
